@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Add a student to all bootcamp courses</title>
+	</head>
+	<body>
+		<div>
+			<P>Add a new course</p>
+			{% if messages%}
+				{% for ee in messages %}
+					{{ee}}
+				{% endfor %}
+			{% endif %}
+			<form method="POST" action="/add">
+				{% csrf_token %}
+				<label for="name"> Name: </label>
+		        <input type="text" name="name"><br>
+		        <label for="description"> Discription: </label>
+		        <input type="text"  name="discription"><br>
+		        <input type="submit" name="sub" value="Add">
+			</form>
+		</div>
+		
+		<div class="d1">
+				<h3>Name</h3>
+				{% for course in all_course %}
+					<p>{{course.name}}</p>
+				
+				{% endfor %}
+		</div>
+		<div class="d1">
+				<h3>Description</h3>
+				{% for course in all_course %}
+					<p>{{course.description}}</p>
+				
+				{% endfor %}
+		</div>
+		<div class="d1">
+			<h3>Created_at</h3>
+			{% for course in all_course %}
+				<p>{{course.created_at}}</p>
+			
+			{% endfor %}
+		</div>
+		<div class="d1">
+			<h3>Actions</h3>
+			{% for course in all_course %}
+				<p>  <a href="{{course.id}}/delete">Delete</a></p>
+			
+			{% endfor %}
+		</div>
+	</body>
+	<style type="text/css">
+		.{
+			margin:0;
+		}
+		.d1{
+			display: inline-block;
+			width: 200px;
+			vertical-align: top;
+		}
+	</style>
+</html>

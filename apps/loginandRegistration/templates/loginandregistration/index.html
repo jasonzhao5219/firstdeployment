@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>login and rigis</title>
+	</head>
+	<body>
+		<h3>Registration</h3>
+		{% if messages%}
+				{% for ee in messages %}
+					<p>{{ee}}</p>
+				{% endfor %}
+		{% endif %}
+		<form method="POST" action="/process">
+					{% csrf_token %}
+					<label for="name"> First Name: </label>
+			        <input type="text" name="firstname"><br>
+
+			        <label for="description"> Last Name: </label>
+			        <input type="text"  name="lastname"><br>
+
+			        <label for="email"> Email : </label>
+			        <input type="text" name="email"><br>
+
+			        <label for="password"> Password: </label>
+			        <input type="text"  name="password"><br>
+
+			        <label for="comfirm_password"> Comfirm Password: </label>
+			        <input type="text" name="comfirm_password"><br>
+			    
+			        <input type="submit" name="sub1" value="Register">
+
+		</form>
+		<h3>Login</h3>
+		<form method="POST" action="/login">
+			{% csrf_token %}
+			<label for="email"> Email : </label>
+			<input type="text" name="email"><br>
+
+			<label for="password"> Password: </label>
+			<input type="text"  name="password"><br>
+
+			<input type="submit" name="sub2" value="Login in">
+		</form>
+	</body>
+</html>

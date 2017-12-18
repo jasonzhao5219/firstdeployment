@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>confrim and delete a course</title>
+	</head>
+	<body>
+		<h3>Are You Sure you want to delete the following course ? </h3>
+		   <p> Name :           {{request.session.cname}} </p>
+		   <p> Description :            {{request.session.cdes}}</p>
+		 <form class="form1" method="POST" action="/{{request.session.cid}}/destroy">
+		 	{% csrf_token %}
+		 	<input class="input1" type="submit" name="sub1" value="Yes, I want to delete this">
+		 </form>
+		 <form class="form2" method="POST" action="/">
+		 	{% csrf_token %}
+		 	<input type="submit" name="sub2" value="NO">
+		 </form>
+	</body>
+	<style type="text/css">
+		.form1{
+			display: inline-block;
+			background-color: red;
+		}
+		.form2{
+			display: inline-block;
+			margin-left: 100px;
+		}
+		.input1{
+			background-color: red;
+		}
+	</style>
+</html>

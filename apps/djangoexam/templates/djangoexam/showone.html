@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>show specific trip</title>
+</head>
+<body>
+	<a href="/logout">Log Out</a>
+		<h2>Planed By: {{request.session.planner}}</h2>
+	<h4> Destination: {{request.session.tname}}</h4>
+	<p>Description: {{request.session.tdescription}}</p>
+		<p>Start at: {{request.session.tstart}}</p>
+			<p>End at: {{request.session.tend}}</p>
+
+			<h3>other users join this trip</h3>
+			 {%  for oo in other %}
+			 	<p>{{oo.name}}</p>
+			 {% endfor  %}
+</body>
+</html>

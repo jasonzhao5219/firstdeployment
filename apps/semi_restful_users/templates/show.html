@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Reading of REST</title>
+</head>
+<body>
+	<h2>User  {{request.session.number}}</h2>
+	<p>Full Name : {{request.session.name}}  {{request.session.last_name}}</p>
+	<p>Email :  {{request.session.email}}</p>
+	<p>Created At : {{request.session.create}} </p>
+	<br>
+	<p><a href="{{request.session.uid}}/edit">Edit</a> | <a href="{{request.session.uid}}/destroy">Destroy</a></p>
+</body>
+</html>

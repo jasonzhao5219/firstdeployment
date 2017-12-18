@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add new users</title>
+</head>
+<body>
+	<h2>User  {{request.session.number}}</h2>
+	
+	<form method="POST" action="/users/{{request.session.uid}}/update">
+		{% csrf_token %}
+	
+		<label for="firstname">First Name:</label>
+        <input type="text" name="firstname" value="{{request.session.name}} "><br>
+        <label for="lastname">Last Name:</label>
+        <input type="text" name="lastname" value=" {{request.session.last_name}}"><br>
+        <label for="email">Email:</label>
+        <input type="text" name="email" value="{{request.session.create}}"><br>
+        <input type="submit" name="sub2" value="Update">
+	</form>
+
+	<div><a href="/users">Go Back</a></div>
+	<div><a href="/users/{{request.session.uid}}">Show</a></div>
+</body>
+</html>

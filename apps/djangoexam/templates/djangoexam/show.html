@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login in page</title>
+	</head>
+	<body>
+		<a href="/">Home</a>
+		<a href="/logout">Log Out</a>
+		<h3>Welcome,{{request.session.name}}</h3>
+		<h2>The other users` travel plan</h2>
+		 
+		{% for uo in uother %}
+			{% for uo2 in uo %}
+				<h3><p><a href="/destination/{{uo2.id}}">{{uo2.destination}}</a> </p><h3>
+				<p>{{uo2.description}}</p>	
+				<p>{{uo2.start_date}}</p>
+				<p>{{uo2.end_date}}</p>
+				<a href="/join/{{uo2.id}}">Join</a>
+			
+				
+			
+			{% endfor %}
+		
+		{% endfor %}
+
+			
+			
+			
+
+			
+		
+	
+		<h2>Your travel plan</h2>	
+
+		
+			{% for uu in ushow %}
+				
+					<p><a href="destination"></a>{{uu.destination}}</p>
+					
+					<p>{{uu.description}}</p>	
+					<p>{{uu.start_date}}</p>
+					<p>{{uu.end_date}}</p>
+					
+			{% endfor %}
+		
+			
+		<form method="=post" action="/Add">
+			<input type="submit" name="sub1" value="Add a travel plan">
+		</form>
+		
+
+			
+
+			
+			
+		
+	
+	</body>
+	<style type="text/css">
+		.reviewp{
+			background-color: yellow;
+		}
+	</style>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>the surver form result</title>
+</head>
+<body>
+
+	<div id="resultid" method="post">
+		your name is: {{request.session.name}}
+		<br>
+		dojo location: {{request.session.location}}
+		<br>
+		favorate language: {{request.session.language}}
+		<br>
+		comment : {{request.session.comment}}
+		<br>
+		<form action="/" method="post">
+			{% csrf_token %}
+			<input type="submit" name="sub" value="GoBack">
+		</form>
+	</div>
+</body>
+</html>

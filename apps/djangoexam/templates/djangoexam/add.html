@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add travel</title>
+</head>
+<body>
+	<a href="/">Home</a>
+	<a href="/logout">Log Out</a>
+	<h1>add a trip</h1>
+	{% if messages%}
+					{% for ee in messages %}
+						<p>{{ee}}</p>
+					{% endfor %}
+				{% endif %}
+	<form method="POST" action="/addsuc">
+							{% csrf_token %}
+							<label for="d1"> Destination: </label>
+					        <input type="text" name="d1"><br>
+
+					        <label for="description"> description: </label>
+					        <input type="text"  name="description"><br>
+
+					        
+					        <p>date format should be like "2015-10-10 10:10"</p>
+					        <label for="startdate"> startdate: </label>
+					        <input type="text"  name="startdate"><br>
+
+					        <label for="enddate"> enddate: </label>
+					        <input type="text" name="enddate"><br>
+					    
+					        <input type="submit" name="sub2" value="Add a trip">
+
+
+
+	</form>
+	
+</body>
+</html>

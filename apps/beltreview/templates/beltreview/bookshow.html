@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login in page</title>
+	</head>
+	<body>
+		
+		<h3>Welcome,{{request.session.name}}</h3>
+		<h4>The other books with reviews</h4>
+		 <textarea rows="5" cols="40" type="text" name="review" value="{% for book in all_book %}
+			<p><h3>{{book.title}}</h3></p>
+			
+			{% for rr in all_review %}
+					{% if rr.book.id == book.id %}
+						<p class="reviewp">{{rr.review}}</p>
+						{{ rr.created_at|date:"D d M Y" }}
+					{% endif %}
+				
+			{% endfor %}
+			
+
+			
+		
+		{% endfor %}"></textarea>
+		<h4>Most recent books with reviews</h4>	
+		{% for book in all_book %}
+			<p><h3>{{book.title}}</h3></p>
+					
+			{% for rr in all_review %}
+
+					{% if rr.book.id == book.id %}
+						<p>{{rr.user.first_name}}</p>
+						<p class="reviewp">{{rr.review}}</p>
+						{{ rr.created_at|date:"D d M Y" }}
+
+					{% endif %}
+				
+			{% endfor %}
+			
+
+			
+			
+		{% endfor %}
+	
+	</body>
+	<style type="text/css">
+		.reviewp{
+			background-color: yellow;
+		}
+	</style>
+</html>
