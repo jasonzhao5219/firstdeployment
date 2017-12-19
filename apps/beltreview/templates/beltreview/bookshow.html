@@ -4,32 +4,31 @@
 		<title>Login in page</title>
 	</head>
 	<body>
-		
+		<a href="/showbook/add">add book and reviews</a>
 		<h3>Welcome,{{request.session.name}}</h3>
-		<h4>The other books with reviews</h4>
-		 <textarea rows="5" cols="40" type="text" name="review" value="{% for book in all_book %}
-			<p><h3>{{book.title}}</h3></p>
-			
-			{% for rr in all_review %}
-					{% if rr.book.id == book.id %}
-						<p class="reviewp">{{rr.review}}</p>
-						{{ rr.created_at|date:"D d M Y" }}
-					{% endif %}
-				
-			{% endfor %}
-			
+		<h1>The other books with reviews</h1>
+		<textarea rows="5" culs="300">
+			 	{% for book in other_book %}
+					<h3><a href="showone/{{book.id}}">{{book.title}}</a></h3>
+					
+					{% for rr in all_review %}
+							{% if rr.book.id == book.id %}
+								<p >{{rr.review}}</p>
+								{{ rr.created_at }}
+							{% endif %}
+						
+					{% endfor %}
+				{% endfor %}">
+		</textarea>
 
-			
-		
-		{% endfor %}"></textarea>
-		<h4>Most recent books with reviews</h4>	
-		{% for book in all_book %}
-			<p><h3>{{book.title}}</h3></p>
+		<h1>Most recent books with reviews</h1>	
+		{% for book in firstthree_book %}
+			<h3><a href="showone/{{book.id}}">{{book.title}}</a></h3>
 					
 			{% for rr in all_review %}
 
 					{% if rr.book.id == book.id %}
-						<p>{{rr.user.first_name}}</p>
+						<p>{{rr.user.first_name}}  Said: </p>
 						<p class="reviewp">{{rr.review}}</p>
 						{{ rr.created_at|date:"D d M Y" }}
 
@@ -46,6 +45,11 @@
 	<style type="text/css">
 		.reviewp{
 			background-color: yellow;
+		}
+		textarea{
+			width: 600px;
+			height: 300px;
+			font-size: 150%;
 		}
 	</style>
 </html>

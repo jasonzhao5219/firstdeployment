@@ -43,7 +43,7 @@ INSTALLED_APPS = [
         ### added this line!
         #'apps.loginandRegistration',
         #'apps.beltreview',
-        'apps.djangoexam',
+        'apps.examtwo',
        'django.contrib.admin',
        'django.contrib.auth',
        'django.contrib.contenttypes',

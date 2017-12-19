@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>user infomation</title>
+</head>
+<body>
+	<a href="/dashboard">Dashboard</a> <a href="/logout">Log Out</a>
+	<h3>{{request.session.infoname}}</h3>
+	<p>Count : {{request.session.count}}</p>
+
+	{% for uu in infoquote %}
+		<p>{{uu.message}}</p>
+	{% endfor %}
+</body>
+</html>

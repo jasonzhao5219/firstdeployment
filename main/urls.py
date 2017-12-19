@@ -20,7 +20,7 @@ urlpatterns = [
        # And now we use the include function to pull in our first_app.urls...
      #url(r'^', include('apps.loginandRegistration.urls'))
      #url(r'^', include('apps.beltreview.urls'))
-     url(r'^', include('apps.djangoexam.urls'))
+     url(r'^', include('apps.examtwo.urls'))
      #url(r'^', include('apps.timedisplay.urls'))
      #url(r'^', include('apps.users.urls'))
 ]

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quote</title>
+</head>
+<body>
+	<h1>Welcome , {{request.session.name}} !</h1>
+	<a href="/logout">Log Out</a>
+	<h2>other quotes</h2>
+		 
+		
+			{% for qq in all_quote1 %}
+				<h3>Post By : <a href="users/{{qq.user.id}}">{{qq.user.name}}</a></h3>
+				<p>{{qq.message}}</p>
+				
+						
+				<form method="POST" action="/addfavorite/{{qq.id}}">
+					{% csrf_token %}
+						<input type="submit" name="sub3" value="add to my list">
+					</form>
+			
+			{% endfor %}
+		
+		
+
+			
+			
+			
+
+			
+		
+	
+		<h2>Your favorite quotes</h2>	
+
+		
+			{% for qq in all_quote2 %}
+				
+					<p>{{qq.message}}</p>
+				<h3>Post By : <a href="#">{{qq.user.name}}</a></h3>
+				<form method="POST" action="/removefavorite/{{qq.id}}">
+					{% csrf_token %}
+					<input type="submit" name="sub4" value="Remove from my list">
+				</form>	
+					
+			{% endfor %}
+
+
+
+	<h1>Quote</h1>
+	{% if messages%}
+					{% for ee in messages %}
+						<p>{{ee}}</p>
+					{% endfor %}
+				{% endif %}
+	<form method="POST" action="/addquote">
+							{% csrf_token %}
+							<label for="message"> Message : </label>
+					        <input type="text" name="message"><br>
+
+					        <label for="postby"> Post by Who: </label>
+					        <input type="text"  name="postby"><br>
+
+					        
+					        
+					    
+					        <input type="submit" name="sub2" value="submit">
+
+
+
+	</form>
+</body>
+</html>

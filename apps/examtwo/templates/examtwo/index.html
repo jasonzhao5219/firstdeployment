@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>login and regis</title>
+	</head>
+	<body>
+			<h1>Welcome</h1>
+			<div class="div1">
+				<h3>Register</h3>
+				{% if messages%}
+					{% for ee in messages %}
+						<p>{{ee}}</p>
+					{% endfor %}
+				{% endif %}
+				<form method="POST" action="/process">
+							{% csrf_token %}
+							<label for="name">  Name: </label>
+					        <input type="text" name="name"><br>
+
+					        <label for="alias">  Alias: </label>
+					        <input type="text" name="alias"><br>
+
+					        <label for="username">Email : </label>
+					        <input type="text"  name="email"><br>
+
+					        
+
+					        <label for="password"> Password: </label>
+					        <input type="text"  name="password"><br>
+
+
+					        <label for="comfirm_password"> Comfirm Password: </label>
+					        <input type="text" name="comfirm_password"><br>
+
+					        <label for="birthdate"> birth date: </label>
+					        <input type="text"  name="birthdate" value="YEAR-Month-Day hour:minite"><br>
+					    
+					        <input type="submit" name="sub1" value="Register">
+
+				</form>
+			</div>
+
+
+			<div class="div1">
+				{% if messages%}
+					{% for ee in messages %}
+						<p>{{ee}}</p>
+					{% endfor %}
+				{% endif %}
+				<h3>Login</h3>
+				<form method="POST" action="/login">
+					{% csrf_token %}
+					<label for="email"> Email: </label>
+					<input type="text" name="email"><br>
+
+					<label for="password"> Password: </label>
+					<input type="text"  name="password"><br>
+
+					<input type="submit" name="sub2" value="Login in">
+				</form>
+			</div>
+	</body>
+	<style type="text/css">
+		.div1{
+			display: inline-block;
+			margin-left: 100px;
+		}
+	</style>
+</html>
